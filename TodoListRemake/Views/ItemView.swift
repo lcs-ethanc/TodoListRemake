@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     
-    let currentItem: TodoItem
+    @Binding var currentItem: TodoItem
 
     
     var body: some View {
@@ -17,11 +17,11 @@ struct ItemView: View {
             title:  {
                 Text(currentItem.title)
             },icon: {
-                if currentItem.done == true {
-                Image(systemName: "checkmark.circle")
-                } else {
-                    Image(systemName: "circle")
-                }
+                Image(systemName: currentItem.done == true ?  "checkmark.circle": "circle" )
+                //Tap to mark as done
+                    .onTapGesture {
+                        currentItem.done.toggle()
+                    }
                 
             }
         )
@@ -29,8 +29,8 @@ struct ItemView: View {
 }
 #Preview {
     List{
-        ItemView(currentItem: exampleItems[1])
-        ItemView(currentItem: exampleItems[2])
+        ItemView(currentItem: Binding.constant(exampleItems[1]))
+        ItemView(currentItem: Binding.constant(exampleItems[2]))
     }
 
 }
