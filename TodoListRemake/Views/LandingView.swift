@@ -22,7 +22,7 @@ struct LandingView: View {
     @Environment(\.modelContext) var modelContext
     
     //The list of to-do items
-    @State var todos: [TodoItem] = exampleItems
+    @Query var todos: [TodoItem]
     
     //MARK: Computed Properties
     
@@ -31,21 +31,15 @@ struct LandingView: View {
         NavigationStack{
             
             VStack {
-                List ($todos){ $todo in
-                    ItemView(currentItem: $todo)
-                    //Delete
-                        .swipeActions{
-                            Button(
-                                "Delete",
-                                role: .destructive,
-                                action: {
-                                    delete(todo)
-                                }
-                            )
-                        }
+                List {
+                    ForEach(todos) { todo in
                         
+                        ItemView(currentItem: todo)
+                 
+                    }
+                    .onDelete(perform: removeRows)
                 }
-                .searchable(text:$searchText)
+                .searchable(text: $searchText)
                 
                 HStack{
                     TextField("Enter a to-do item", text:$newItemDescription)
@@ -74,14 +68,18 @@ struct LandingView: View {
             done: false
         )
         
-        //Append
-        todos.append(todo)
+        // Use the model context to insert the new to-do
+        modelContext.insert(todo)
     }
-    func delete(_ todo: TodoItem) {
+    func removeRows(at offsets: IndexSet) {
         
-        //remove
-        todos.removeAll{ currentItem in
-            currentItem.id == todo.id
+        // Accept the offset within the list
+        // (the position of the item being deleted)
+        //
+        // Then ask the model context to delete this
+        // for us, from the 'todos' array
+        for offset in offsets {
+            modelContext.delete(todos[offset])
         }
     }
 }
