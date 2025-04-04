@@ -54,6 +54,9 @@ struct LandingView: View {
                 .padding(20)
             }
             .navigationTitle("To do")
+            .onAppear {
+                printCommandToOpenDatabaseFile()
+            }
         }
         
         

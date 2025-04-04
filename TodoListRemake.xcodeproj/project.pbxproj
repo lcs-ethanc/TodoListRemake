@@ -13,6 +13,7 @@
 		444BAB562D9F53DD003B8DC2 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444BAB542D9F53DD003B8DC2 /* ItemView.swift */; };
 		444BAB572D9F53DD003B8DC2 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444BAB532D9F53DD003B8DC2 /* LandingView.swift */; };
 		444BAB582D9F53DD003B8DC2 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444BAB512D9F53DD003B8DC2 /* TodoItem.swift */; };
+		444BAB5B2DA03C1C003B8DC2 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444BAB5A2DA03C1C003B8DC2 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		444BAB512D9F53DD003B8DC2 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		444BAB532D9F53DD003B8DC2 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		444BAB542D9F53DD003B8DC2 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		444BAB5A2DA03C1C003B8DC2 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		444BAB592D9F53F4003B8DC2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				444BAB5A2DA03C1C003B8DC2 /* Functions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				444BAB4D2D9F53CA003B8DC2 /* TodoListRemakeApp.swift in Sources */,
 				444BAB562D9F53DD003B8DC2 /* ItemView.swift in Sources */,
 				444BAB572D9F53DD003B8DC2 /* LandingView.swift in Sources */,
+				444BAB5B2DA03C1C003B8DC2 /* Functions.swift in Sources */,
 				444BAB582D9F53DD003B8DC2 /* TodoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
