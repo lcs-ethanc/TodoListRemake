@@ -5,12 +5,17 @@
 //  Created by Pak Ching Ethan Chen on 2025-02-01.
 //
 
-import SwiftUI
-
-struct TodoItem: Identifiable {
-    let id = UUID()
+import SwiftData
+@Model
+class TodoItem: Identifiable {
     var title: String
     var done: Bool
+    
+    
+    init(title: String, done: Bool) {
+        self.title = title
+        self.done = done
+    }
 }
 
 let exampleItems = [
