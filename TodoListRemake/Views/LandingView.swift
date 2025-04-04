@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct LandingView: View {
     
@@ -16,6 +17,9 @@ struct LandingView: View {
     
     //The search test
     @State var searchText: String = ""
+    
+    //Access model content
+    @Environment(\.modelContext) var modelContext
     
     //The list of to-do items
     @State var todos: [TodoItem] = exampleItems
