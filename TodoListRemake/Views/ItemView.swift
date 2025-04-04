@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct ItemView: View {
     
     @Bindable var currentItem: TodoItem
@@ -27,10 +27,14 @@ struct ItemView: View {
         )
     }
 }
-//#Preview {
-//    List{
-//        ItemView(currentItem: Binding.constant(exampleItems[1]))
-//        ItemView(currentItem: Binding.constant(exampleItems[2]))
-//    }
-//
-//}
+#Preview {
+    
+    let container = TodoItem.preview
+    
+    return List {
+        ItemView(currentItem: TodoItem.someItem)
+        ItemView(currentItem: TodoItem.anotherItem)
+    }
+    .modelContainer(container)
+    
+}
