@@ -27,10 +27,10 @@ struct ItemView: View {
         )
     }
 }
-#Preview {
-    List{
-        ItemView(currentItem: Binding.constant(exampleItems[1]))
-        ItemView(currentItem: Binding.constant(exampleItems[2]))
-    }
-
-}
+//#Preview {
+//    List{
+//        ItemView(currentItem: Binding.constant(exampleItems[1]))
+//        ItemView(currentItem: Binding.constant(exampleItems[2]))
+//    }
+//
+//}
