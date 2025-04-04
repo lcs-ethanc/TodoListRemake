@@ -29,8 +29,18 @@ struct LandingView: View {
             VStack {
                 List (todos){ todo in
                     ItemView(currentItem: todo)
+                    //Delete
+                        .swipeActions{
+                            Button(
+                                "Delete",
+                                role: .destructive,
+                                action: {
+                                    delete(todo)
+                                }
+                            )
+                        }
                 }
-                    .searchable(text:$searchText)
+                .searchable(text:$searchText)
                 
                 HStack{
                     TextField("Enter a to-do item", text:$newItemDescription)
@@ -42,12 +52,12 @@ struct LandingView: View {
                     } .font(.caption)
                         .disabled(newItemDescription.isEmpty == true)
                 }
-                    .padding(20)
+                .padding(20)
             }
             .navigationTitle("To do")
         }
-   
-  
+        
+        
     }
     
     //MARK: Functions
@@ -55,12 +65,19 @@ struct LandingView: View {
         
         //Create new todo item instance
         let todo = TodoItem(
-        title: title,
-        done: false
+            title: title,
+            done: false
         )
         
         //Append
         todos.append(todo)
+    }
+    func delete(_ todo: TodoItem) {
+        
+        //remove
+        todos.removeAll{ currentItem in
+            currentItem.id == todo.id
+        }
     }
 }
 
